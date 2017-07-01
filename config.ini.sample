@@ -1,0 +1,20 @@
+[Logging]
+path: logs
+level: 2
+
+[PushNotification]
+appid: <instaPushAppId>
+secret: <instaPushSecret>
+
+[Mail]
+toRecipient: <toRecipient@blabla.bla>
+fromGmailUser: <fromMail@gmail.com>
+fromGmailPwd: <blablabla>
+
+[Feed]
+url: 
+
+[Transmission]
+url: http://<blablablablabla>/transmission/rpc
+usr: 
+pwd: 
