@@ -80,6 +80,7 @@ SESSID = subprocess.check_output("curl --silent --anyauth --user " + tusr +":" +
 loG(1,SESSID)
 if "X-Transmission-Session-Id:" not in SESSID:
 	loG(1,"ERROR - SESSID non valido!!")
+	app.notify(event_name='error', trackers={ 'message': 'SESSID non valido!!'})
 	quit()
 emailsub = '[pyTorrent] Torrent aggiunto!'
 emailmsg = '<h1>pyTorrent</h1>'
@@ -116,7 +117,7 @@ loG(1,'aggiunti: ' + str(b))
 loG(1,'')
 
 if b > 0:
-	send_email(emailsub,emailmsg)
+#	send_email(emailsub,emailmsg)
 
 log_file.close()
 output_file.close()
