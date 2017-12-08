@@ -117,7 +117,7 @@ loG(1,'aggiunti: ' + str(b))
 loG(1,'')
 
 if b > 0:
-#	send_email(emailsub,emailmsg)
+	send_email(emailsub,emailmsg)
 
 log_file.close()
 output_file.close()
