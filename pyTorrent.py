@@ -73,6 +73,9 @@ a = 0
 b = 0
 output_file = open(".added_history","r+")
 added_history = output_file.read()
+output_file_human = open("added_history","r+")
+added_history_human = output_file_human.read()
+
 turl = Config.get('Transmission','url')
 tusr = Config.get('Transmission','usr')
 tpwd = Config.get('Transmission','pwd')
@@ -107,7 +110,8 @@ for ee in d.entries:
 				AAA = subprocess.check_output(cmd, shell=True)
 				loG(2,AAA)
 				if '"result":"success"' in AAA:
-					output_file.write(ee.torrent_infohash + '\t' + ee.title + '\n')
+					output_file.write(ee.torrent_infohash + '\n')
+					output_file_human.write('[' + str(datetime.datetime.now()) + ']\t' + ee.torrent_infohash + '\t' + ee.title + '\n')
 					b += 1
 					app.notify(event_name='added-torrent', trackers={ 'filename': ee.torrent_filename})
 					emailmsg += '<p>Titolo: <strong>'+ee.title+'</strong></p><p>Filename: <strong>'+ee.torrent_filename+'</strong></p><hr>'
@@ -121,3 +125,4 @@ if b > 0:
 
 log_file.close()
 output_file.close()
+output_file_human.close()
