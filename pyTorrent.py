@@ -59,9 +59,9 @@ def send_email(subject, body):
         server.login(gmail_user, gmail_pwd)
         server.sendmail(FROM, TO, message)
         server.close()
-        print 'successfully sent the mail'
+        loG(1, "successfully sent the mail")
     except:
-        print "failed to send mail"
+        loG(1,"failed to send mail")
 
 loG(1,'------------------------------------------------------------------------------------------')
 d = feedparser.parse(Config.get('Feed','url'))
