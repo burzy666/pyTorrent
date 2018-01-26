@@ -113,7 +113,11 @@ for ee in d.entries:
 					output_file.write(ee.torrent_infohash + '\n')
 					output_file_human.write('[' + str(datetime.datetime.now()) + ']\t' + ee.torrent_infohash + '\t' + ee.title + '\n')
 					b += 1
-					app.notify(event_name='added-torrent', trackers={ 'filename': ee.torrent_filename})
+					try:
+					    app.notify(event_name='added-torrent', trackers={ 'filename': ee.torrent_filename})
+					    loG(1,'inviata notifica')
+					except:
+					    loG(1,'errore invio notifica')
 					emailmsg += '<p>Titolo: <strong>'+ee.title+'</strong></p><p>Filename: <strong>'+ee.torrent_filename+'</strong></p><hr>'
 
 loG(1,'considerati: ' + str(a))
